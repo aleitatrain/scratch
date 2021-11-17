@@ -1,0 +1,141 @@
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head><html>
+    <div id="app" class="doxo__progress-stepper">
+        <div class="doxo__progress-stepper horizontal">
+            <div v-for='n in content' class="doxo__progress-stepper--item" :class="n.status">
+                <div class="doxo__progress-stepper--indicator">
+                    <div class="doxo__progress-stepper--indicator--bar-container">
+                        <div class="doxo__progress-stepper--indicator--bar-fill" >
+                            <i></i>
+                        </div>
+                    </div>
+                    <div class="doxo__progress-stepper--indicator--icon">
+                        <i></i>
+                    </div>
+                </div>
+                <div class="doxo__progress-stepper--copy">
+                    <p>Scheduled</p>
+                    <p>Nov 15th</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</html>
+<script>
+    var app = new Vue({
+  el: '#app',
+  data: {
+    content: [
+        {
+            status: 'complete',
+            title: 'Scheduled',
+            date: 'Nov 15th'
+        },
+        {
+            status: 'active',
+            title: 'Scheduled',
+            date: 'Nov 15th'
+        },
+        {
+            status: '',
+            title: 'Scheduled',
+            date: 'Nov 15th'
+        },
+        {
+            status: '',
+            title: 'Scheduled',
+            date: 'Nov 15th'
+        }
+    ]
+  }
+})
+</script>
+
+<style>
+    .doxo__progress-stepper {
+        width: 100%;
+    }
+    .doxo__progress-stepper--item {
+        width: 100%;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .doxo__progress-stepper--indicator {
+        height: 50px;
+        width: 100%;
+        position: relative;
+        background-color: transparent;
+        display: inline-flex;
+        align-items: center;
+    }
+    .doxo__progress-stepper--indicator--icon {
+        position: absolute;
+        left: calc(50% - 25px);
+        height: 50px;
+        width: 50px;
+        border-radius: 50px;
+        background-color: black;
+    }
+    .doxo__progress-stepper--item:first-of-type .doxo__progress-stepper--indicator--bar-container,
+    .doxo__progress-stepper--item:last-of-type .doxo__progress-stepper--indicator--bar-container {
+        width: 100%;
+        background-color:white;
+        height: 40px;
+        position: relative;
+    }
+    .doxo__progress-stepper--item.active .doxo__progress-stepper--indicator--bar-fill {
+        width: 50%;
+        background-color:green;
+        height: 40px;
+        position: relative;
+    }
+    .doxo__progress-stepper--item.complete .doxo__progress-stepper--indicator--bar-fill {
+        width: 100%;
+        background-color:green;
+        height: 40px;
+        position: relative;
+    }
+    .doxo__progress-stepper--item.complete .doxo__progress-stepper--indicator--icon {
+        background-color:green;
+    }
+    .doxo__progress-stepper--item:last-of-type .doxo__progress-stepper--indicator--bar-fill {
+        width: 50%;
+        background-color:lightgrey;
+        height: 40px;
+        position: relative;
+    }
+    .doxo__progress-stepper--item:last-of-type.active .doxo__progress-stepper--indicator--bar-fill {
+        width: 50%;
+        background-color:green;
+        height: 40px;
+        position: relative;
+    }
+    .doxo__progress-stepper--item:last-of-type.complete .doxo__progress-stepper--indicator--bar-fill {
+        width: 50%;
+        background-color:green;
+        height: 40px;
+        position: relative;
+    }
+    .doxo__progress-stepper--item .doxo__progress-stepper--indicator--bar-container {
+        width: 100%;
+        background-color:lightgrey;
+        height: 40px;
+        position: relative;
+    }
+    .doxo__progress-stepper--item:first-of-type .doxo__progress-stepper--indicator--bar-fill {
+        width: 50%;
+        background-color:green;
+        height: 40px;
+        position: absolute;
+        left: 50%;
+    }
+    .doxo__progress-stepper.horizontal {
+        display: inline-flex;
+        flex-wrap: no-wrap;
+        flex-direction: row;
+    }
+   
+</style>
